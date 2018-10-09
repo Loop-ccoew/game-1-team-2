@@ -1,0 +1,44 @@
+import java.io.*
+public class Hollywood
+{
+String s1="ANABELLE";
+String s2="A__A_E__E";
+public static void main()throws IOException
+{
+BufferedReader b=new BufferedReader(new InputStreamReader(System.in));
+int holly=9,pos;
+char ch;
+System.out.println("\t\t\t HOLLYWOOD \n Guess the movie.You have got 9 chances.All the Best!");
+System.out.println(s2);
+while(holly!=0)
+{
+System.out.println("For which position do you want to guess the letter?");
+pos=Integer.parseInt(b.readLine());
+System.out.println("Enter the letter in uppercase");
+ch=(char)(b.read());
+if(ch==s1.charAt(pos-1))
+{
+System.out.println("Correct guess!");
+s2=s2.replace('_',ch);
+System.out.println(s2);
+}
+else if(ch!=s1.charAt(pos-1))
+{
+System.out.println("Wrong guess :(");
+holly--;
+System.out.println("You have "+holly+" more chances left to guess the movie.");
+}
+else if(s2.equals(s1))
+{
+System.out.println("You Win !!!\n The movie is ANNABELLE");
+break;
+}
+}
+if (holly==0)
+{
+System.out.println("You lost the game.\n Name of the movie- ANNABELLE");
+}
+}
+}
+
+
